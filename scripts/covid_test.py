@@ -72,18 +72,17 @@ fig.text(0.02, 0.003,
 fig.text(0.88, 0.98, f"{now.strftime('%Y-%m-%d %H:%M:%S')}")
 fig.text(0.1, 0.9, f'Total Cases = {total_cases:10}\nTotal Deaths = {total_deaths:10}', fontsize=14,
          bbox=dict(facecolor='white', alpha=1))
+
 # New Cases axes settings
-ax[0].set_title('US COVID-19 Cases By Day')
-ax[0].set_xlabel('Date Reported')
-ax[0].set_ylabel('Million Cases')
+ax[0].set(xlabel='Date Reported', ylabel='Million Cases',
+          title='US COVID-19 Cases By Day')
 ax[0].grid()
 ax[0].plot(usdf['Date_reported'], usdf['New_cases'], 'b', label='New Cases')
 ax[0].legend(loc=0, frameon=True)
 
 # New Deaths axes settings
-ax[1].set_title('US COVID-19 Deaths By Day')
-ax[1].set_xlabel('Date Reported')
-ax[1].set_ylabel('Deaths')
+ax[1].set(xlabel='Date Reported', ylabel='Deaths',
+          title='US COVID-19 Deaths By Day')
 ax[1].grid()
 ax[1].plot(usdf['Date_reported'], usdf['New_deaths'], 'r', label='New Deaths')
 ax[1].legend(loc=0, frameon=True)
